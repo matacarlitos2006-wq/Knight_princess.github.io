@@ -11,11 +11,12 @@ $(document).ready(function () {
         if (e.key === 'ArrowLeft') moveX = -3;
         if (e.key === 'ArrowRight') moveX = 3;
         if (e.key === 'ArrowUp') moveY = -5; // jump upward
+        if (e.key == 'ArrowDown') moveY = 5;
     });
 
     $(document).keyup(function (e) {
         if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') moveX = 0;
-        if (e.key === 'ArrowUp') moveY = 0;
+        if (e.key === 'ArrowUp' || e.key == 'ArrowDown') moveY = 0;
     });
 
     function movePlayer() {
@@ -37,5 +38,5 @@ $(document).ready(function () {
         requestAnimationFrame(movePlayer);
     }
 
-    movePlayer(); // start loop
+    movePlayer(); 
 });
