@@ -36,3 +36,18 @@ body {
   padding: 0;
   box-sizing: border-box; 
 }
+
+#score, #lives {
+  color: #ff66b2;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+}
+
+#score {
+  right: 10px;
+}
+
+#lives {
+  left: 10px;
+}
