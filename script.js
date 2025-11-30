@@ -5,6 +5,7 @@ $(document).ready(function () {
     const livesDisplay = $('#lives');
     let score = 0;
     let lives = 5;
+    let moveDirection = 0;
 
 
     $(document).keydown(function (e) {
@@ -16,3 +17,12 @@ $(document).ready(function () {
     if (moveDirection === "up") {
       player.y -= 10; // Decrease y-coordinate to move up
     }
+
+    function movePlayer() {
+      const currentLeft = parseFloat(player.css('left'));
+      const newLeft = currentLeft + moveDirection;
+      if (newLeft >= 0 && newLeft <= gameContainer.width() - player.width()) {
+        player.css('left', newLeft);
+      }
+    }
+}
