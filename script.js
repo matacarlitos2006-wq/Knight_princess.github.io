@@ -18,6 +18,10 @@ $(document).ready(function () {
       player.y -= 10; // Decrease y-coordinate to move up
     }
 
+    $(document).keyup(function () {
+      moveDirection = 0;
+    });
+
     function movePlayer() {
       const currentLeft = parseFloat(player.css('left'));
       const newLeft = currentLeft + moveDirection;
