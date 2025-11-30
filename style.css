@@ -26,15 +26,10 @@ body {
 #player {
   width: 80px;
   height: 80px;
-  font-size: 40px; 
   position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  line-height: 50px;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; 
 }
 
 #score, #lives {
