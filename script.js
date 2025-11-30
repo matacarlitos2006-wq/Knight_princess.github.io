@@ -25,4 +25,4 @@ $(document).ready(function () {
         player.css('left', newLeft);
       }
     }
-}
+});
