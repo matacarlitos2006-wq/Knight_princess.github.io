@@ -5,36 +5,39 @@ body {
   text-align: center;
   overflow: hidden;
   color: white;
-  position: relative;
 }
 
 #game-container {
   width: 90vw;
   max-width: 600px;
   height: 75vh;
-  background: rgba(0, 0, 0, 0.9);
+  background: black;
   position: relative;
   margin: 5vh auto;
   overflow: hidden;
   border: 3px solid #ff66b2;
   border-radius: 15px;
-  z-index: 1;
-  box-sizing: border-box; 
-  padding: 0;
 }
 
+
+#map {
+  position: absolute;
+  width: 2000px;       
+  height: 2000px;
+  background-image: url("images/map.jpg");
+  background-size: cover;
+}
+
+/* Player */
 #player {
   width: 80px;
   height: 80px;
-  font-size: 40px; 
   position: absolute;
-  bottom: 10px;
+  z-index: 10;
+  /* Player always visually centered */
   left: 50%;
-  transform: translateX(-50%);
-  line-height: 50px;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; 
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #score, #lives {
@@ -44,10 +47,9 @@ body {
   top: 10px;
 }
 
-#score {
-  right: 10px;
+#score { 
+  right: 10px; 
 }
-
-#lives {
-  left: 10px;
+#lives { 
+  left: 10px; 
 }
