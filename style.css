@@ -1,1 +1,9 @@
-
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  text-align: center;
+  overflow: hidden;
+  color: white;
+  position: relative;
+}
