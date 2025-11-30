@@ -10,7 +10,7 @@ $(document).ready(function () {
     $(document).keydown(function (e) {
       if (e.key === 'ArrowLeft') moveDirection = -3;
       if (e.key === 'ArrowRight') moveDirection = 3;
-      if (e.key === ' ') moveDirection = "up";
+      if (e.key === 'ArrowUp') moveDirection = "up";
     });
 
     if (moveDirection === "up") {
