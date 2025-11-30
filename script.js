@@ -1,32 +1,41 @@
 $(document).ready(function () {
     const player = $('#player');
     const gameContainer = $('#game-container');
-    const scoreDisplay = $('#score');
-    const livesDisplay = $('#lives');
-    let score = 0;
-    let lives = 5;
-    let moveDirection = 0;
+    let moveX = 0;
+    let moveY = 0;
 
+    // Starting position (so we can modify top later)
+    player.css("top", gameContainer.height() - player.height() - 10);
 
     $(document).keydown(function (e) {
-      if (e.key === 'ArrowLeft') moveDirection = -3;
-      if (e.key === 'ArrowRight') moveDirection = 3;
-      if (e.key === 'ArrowUp') moveDirection = "up";
+        if (e.key === 'ArrowLeft') moveX = -3;
+        if (e.key === 'ArrowRight') moveX = 3;
+        if (e.key === 'ArrowUp') moveY = -5; // jump upward
     });
 
-    if (moveDirection === "up") {
-      player.y -= 10; // Decrease y-coordinate to move up
-    }
-
-    $(document).keyup(function () {
-      moveDirection = 0;
+    $(document).keyup(function (e) {
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') moveX = 0;
+        if (e.key === 'ArrowUp') moveY = 0;
     });
 
     function movePlayer() {
-      const currentLeft = parseFloat(player.css('left'));
-      const newLeft = currentLeft + moveDirection;
-      if (newLeft >= 0 && newLeft <= gameContainer.width() - player.width()) {
-        player.css('left', newLeft);
-      }
+        let left = parseFloat(player.css('left'));
+        let top = parseFloat(player.css('top'));
+
+        // Horizontal movement
+        let newLeft = left + moveX;
+        if (newLeft >= 0 && newLeft <= gameContainer.width() - player.width()) {
+            player.css('left', newLeft);
+        }
+
+        // Vertical movement (jump)
+        let newTop = top + moveY;
+        if (newTop >= 0 && newTop <= gameContainer.height() - player.height()) {
+            player.css('top', newTop);
+        }
+
+        requestAnimationFrame(movePlayer);
     }
+
+    movePlayer(); // start loop
 });
